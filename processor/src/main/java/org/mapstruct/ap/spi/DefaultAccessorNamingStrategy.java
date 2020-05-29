@@ -181,7 +181,7 @@ public class DefaultAccessorNamingStrategy implements AccessorNamingStrategy {
             // We are going to extract the same property name settlementDate
             if ( methodName.startsWith( "set" )
                 && methodName.length() > 3
-                && Character.isUpperCase( methodName.charAt( 3 ) ) ) {
+                && (Character.isUpperCase( methodName.charAt( 3 ) ) || Character.isDigit( methodName.charAt( 3 ) ) ) ) {
                 return IntrospectorUtils.decapitalize( methodName.substring( 3 ) );
             }
             else {
